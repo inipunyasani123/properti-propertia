@@ -67,4 +67,4 @@ Semua foto berlisensi CC0 (domain publik), dipotong ke 4:3 dan dikonversi ke Web
 
 ---
 
-Bagian dari koleksi 4 template marketplace properti di [PortalProperti](https://www.pintuweb.com/website-properti). Dibuat oleh [PintuWeb](https://www.pintuweb.com), jasa pembuatan website.
+Bagian dari koleksi 4 template marketplace properti di [PortalProperti](https://www.pintuweb.id/website-properti). Dibuat oleh [PintuWeb](https://www.pintuweb.id), jasa pembuatan website.
