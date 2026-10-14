@@ -6,10 +6,10 @@ import Footer from "@/components/Footer";
 const fraunces = Fraunces({ subsets: ["latin"], variable: "--font-fraunces", display: "swap" });
 const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"], variable: "--font-jakarta", display: "swap" });
 
-const __jsonld = {"@context":"https://schema.org","@type":"RealEstateAgent","name":"Propertia","description":"Marketplace properti yang dikurasi: setiap rumah, apartemen, villa, dan tanah sudah didatangi dan diukur ulang, lengkap dengan kalkulator biaya beli.","url":"https://properti-propertia.vercel.app","areaServed":"ID"};
+const __jsonld = {"@context":"https://schema.org","@type":"RealEstateAgent","name":"Propertia","description":"Marketplace properti yang dikurasi: setiap rumah, apartemen, villa, dan tanah sudah didatangi dan diukur ulang, lengkap dengan kalkulator biaya beli.","url":"https://properti-propertia.pintuweb.id","areaServed":"ID"};
 
 export const metadata = {
-  metadataBase: new URL("https://properti-propertia.vercel.app"),
+  metadataBase: new URL("https://properti-propertia.pintuweb.id"),
   title: { default: "Propertia — Rumah yang dikurasi", template: "%s — Propertia" },
   description: "Marketplace properti yang dikurasi: setiap rumah, apartemen, villa, dan tanah sudah didatangi dan diukur ulang, lengkap dengan kalkulator biaya beli.",
   applicationName: "Propertia",
@@ -17,11 +17,11 @@ export const metadata = {
   authors: [{ name: "Propertia" }],
   creator: "Propertia",
   publisher: "Propertia",
-  alternates: { canonical: "https://properti-propertia.vercel.app" },
+  alternates: { canonical: "https://properti-propertia.pintuweb.id" },
   openGraph: {
     type: "website",
     locale: "id_ID",
-    url: "https://properti-propertia.vercel.app",
+    url: "https://properti-propertia.pintuweb.id",
     siteName: "Propertia",
     title: "Propertia — Rumah yang dikurasi",
     description: "Marketplace properti yang dikurasi: setiap rumah, apartemen, villa, dan tanah sudah didatangi dan diukur ulang, lengkap dengan kalkulator biaya beli.",

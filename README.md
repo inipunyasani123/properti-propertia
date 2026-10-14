@@ -2,7 +2,7 @@
 
 Marketplace butik: sedikit listing, semuanya sudah didatangi dan diukur ulang. Editorial krem–zamrud dengan serif Fraunces dan motif lengkung katedral.
 
-**Demo live:** https://properti-propertia.vercel.app
+**Demo live:** https://properti-propertia.pintuweb.id
 
 ![Tangkapan layar Propertia](public/og.jpg)
 
