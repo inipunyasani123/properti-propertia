@@ -164,7 +164,7 @@ export default function HomePage() {
       </section>
 
       {/* Kenapa Propertia */}
-      <section className="px-4 py-14 sm:px-6 md:py-20 lg:px-8">
+      <section className="tunda-render px-4 py-14 sm:px-6 md:py-20 lg:px-8">
         <div className="mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-2 lg:gap-12">
           <Reveal>
             <div className="arch-sm relative aspect-[16/10] w-full max-w-md overflow-hidden bg-sand shadow-xl sm:aspect-[4/5]">
@@ -190,7 +190,7 @@ export default function HomePage() {
       </section>
 
       {/* Layanan */}
-      <section className="bg-sand/50 px-4 py-14 sm:px-6 md:py-20 lg:px-8">
+      <section className="tunda-render bg-sand/50 px-4 py-14 sm:px-6 md:py-20 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <Reveal><Label no="04">Layanan</Label><h2 className="mt-4 font-display text-3xl text-ink md:text-4xl">Dari survei pertama sampai kunci</h2></Reveal>
           <div className="mt-8 grid gap-px overflow-hidden rounded-3xl border border-black/5 bg-black/5 md:mt-12 md:grid-cols-2 lg:grid-cols-4">
@@ -213,7 +213,7 @@ export default function HomePage() {
       </section>
 
       {/* Biaya — cuplikan kalkulator */}
-      <section className="px-4 py-14 sm:px-6 md:py-20 lg:px-8">
+      <section className="tunda-render px-4 py-14 sm:px-6 md:py-20 lg:px-8">
         <div className="mx-auto grid max-w-7xl items-center gap-8 lg:grid-cols-[1fr_1.1fr] lg:gap-10">
           <Reveal>
             <Label no="05">Hitung biaya</Label>

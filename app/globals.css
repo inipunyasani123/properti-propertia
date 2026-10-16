@@ -54,6 +54,9 @@ h1, h2, h3 { font-family: var(--font-display); letter-spacing: -0.01em; }
   .animate-marquee-x { animation: none !important; }
 }
 
+/* Seksi di bawah layar: dirender (dan fotonya dimuat) saat mendekati layar, tidak berebut dengan judul pembuka. */
+.tunda-render { content-visibility: auto; contain-intrinsic-size: auto 560px; }
+
 /* Kartu yang baru masuk hasil saringan */
 @keyframes kartu-muncul { from { opacity: 0; transform: translateY(8px) scale(0.98); } to { opacity: 1; transform: none; } }
 .kartu-muncul { animation: kartu-muncul 0.3s ease-out both; }
