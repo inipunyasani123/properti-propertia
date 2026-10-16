@@ -4,12 +4,9 @@ import { ArrowRight } from 'lucide-react';
 import PageHeader from '@/components/PageHeader';
 import Reveal from '@/components/ui/Reveal';
 import { site, stats, properti, tentang } from '@/lib/data';
+import { halaman } from '@/lib/seo';
 
-export const metadata = {
-  title: 'Tentang',
-  description: tentang.cerita[0],
-  alternates: { canonical: '/tentang' },
-};
+export const metadata = halaman({ judul: 'Tentang kami', deskripsi: tentang.cerita[0], path: '/tentang', gambar: tentang.foto, alt: tentang.judul });
 
 export default function TentangPage() {
   // Daftar konsultan disusun dari listing yang mereka pegang.

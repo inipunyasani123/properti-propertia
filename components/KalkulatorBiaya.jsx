@@ -1,6 +1,5 @@
 'use client';
 import { useEffect, useMemo, useState } from 'react';
-import { useSearchParams } from 'next/navigation';
 import { hitungBiaya, ASUMSI } from '@/lib/biaya';
 import { properti, rp, formatHarga } from '@/lib/data';
 
@@ -9,7 +8,6 @@ const WARNA = { awal: 'bg-forest', bphtb: 'bg-gold', ppn: 'bg-ink/70', ppat: 'bg
 const angka = (t) => Number(String(t).replace(/\D/g, '')) || 0;
 
 export default function KalkulatorBiaya() {
-  const sp = useSearchParams();
   const [pilih, setPilih] = useState(String(DIJUAL[0].id));
   const [harga, setHarga] = useState(DIJUAL[0].harga);
   const [baru, setBaru] = useState(false);
@@ -19,11 +17,12 @@ export default function KalkulatorBiaya() {
   const [tenor, setTenor] = useState(20);
   const [npoptkp, setNpoptkp] = useState(ASUMSI.npoptkp);
 
-  // ?id= dari halaman detail memilih listing itu.
+  // ?id= dari halaman detail memilih listing itu (dibaca setelah dimuat supaya kalkulator tetap dirender di server).
   useEffect(() => {
-    const p = DIJUAL.find((x) => String(x.id) === sp.get('id'));
+    const id = new URLSearchParams(window.location.search).get('id');
+    const p = DIJUAL.find((x) => String(x.id) === id);
     if (p) { setPilih(String(p.id)); setHarga(p.harga); }
-  }, [sp]);
+  }, []);
 
   const gantiListing = (v) => {
     setPilih(v);
@@ -50,14 +49,14 @@ export default function KalkulatorBiaya() {
 
         <fieldset className="space-y-2">
           <legend className="text-sm font-semibold text-ink">Jenis transaksi</legend>
-          <label className="flex items-center gap-2 text-sm text-ink/85"><input type="checkbox" checked={baru} onChange={(e) => setBaru(e.target.checked)} className="h-4 w-4 accent-forest" /> Rumah baru dari pengembang (kena PPN)</label>
-          <label className="flex items-center gap-2 text-sm text-ink/85"><input type="checkbox" checked={kpr} onChange={(e) => setKpr(e.target.checked)} className="h-4 w-4 accent-forest" /> Dibiayai KPR</label>
+          <label className="flex min-h-8 items-center gap-2 text-sm text-ink/85"><input type="checkbox" checked={baru} onChange={(e) => setBaru(e.target.checked)} className="h-5 w-5 accent-forest" /> Rumah baru dari pengembang (kena PPN)</label>
+          <label className="flex min-h-8 items-center gap-2 text-sm text-ink/85"><input type="checkbox" checked={kpr} onChange={(e) => setKpr(e.target.checked)} className="h-5 w-5 accent-forest" /> Dibiayai KPR</label>
         </fieldset>
 
         {kpr && (
           <>
             <label className={label}>Uang muka: {dp}%
-              <input type="range" min={10} max={50} step={5} value={dp} onChange={(e) => setDp(+e.target.value)} className="mt-2 w-full accent-forest" />
+              <input type="range" min={10} max={50} step={5} value={dp} onChange={(e) => setDp(+e.target.value)} aria-valuetext={`${dp} persen`} className="mt-2 h-6 w-full cursor-pointer accent-forest" />
             </label>
             <div className="grid grid-cols-2 gap-3">
               <label className={label}>Bunga/thn (%)

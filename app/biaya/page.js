@@ -1,12 +1,12 @@
-import { Suspense } from 'react';
 import PageHeader from '@/components/PageHeader';
 import KalkulatorBiaya from '@/components/KalkulatorBiaya';
+import { halaman } from '@/lib/seo';
 
-export const metadata = {
-  title: 'Hitung biaya beli rumah',
-  description: 'Simulasi dana tunai yang perlu disiapkan saat membeli rumah: uang muka, BPHTB, PPN rumah baru, PPAT dan balik nama, biaya KPR, serta cicilan bulanan.',
-  alternates: { canonical: '/biaya' },
-};
+export const metadata = halaman({
+  judul: 'Hitung biaya beli rumah',
+  deskripsi: 'Simulasi dana tunai yang perlu disiapkan saat membeli rumah: uang muka, BPHTB, PPN rumah baru, PPAT dan balik nama, biaya KPR, serta cicilan bulanan.',
+  path: '/biaya',
+});
 
 const LANGKAH = [
   ['Tanda jadi', 'Biasanya 1–5% dari harga, menjadi bagian uang muka.'],
@@ -22,9 +22,7 @@ export default function BiayaPage() {
       <PageHeader kicker="Hitung biaya" title="Harga rumah bukan angka terakhir" subtitle="BPHTB, notaris, dan biaya KPR biasanya menambah 7–10% dari harga. Pilih rumah atau isi harga sendiri untuk melihat rinciannya." />
       <section className="px-4 py-14 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
-          <Suspense fallback={<p className="py-20 text-center text-muted">Memuat kalkulator…</p>}>
-            <KalkulatorBiaya />
-          </Suspense>
+          <KalkulatorBiaya />
         </div>
       </section>
       <section className="bg-sand/50 px-4 py-16 sm:px-6 lg:px-8">

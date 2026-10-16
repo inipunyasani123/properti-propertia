@@ -9,7 +9,7 @@
   --color-forest: #0f3d2e;
   --color-forest-soft: #1c5641;
   --color-sand: #eadfca;
-  --color-gold: #8a6626;
+  --color-gold: #7f5d22;
   --color-muted: #5d6b62;
 }
 
@@ -46,3 +46,14 @@ h1, h2, h3 { font-family: var(--font-display); letter-spacing: -0.01em; }
 
 /* Display numerals — outlined editorial index */
 .numeral-outline { -webkit-text-stroke: 1.5px var(--color-forest); color: transparent; }
+
+/* Hormati pengaturan "kurangi gerakan": tanpa gulir halus, marquee, atau transisi panjang. */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+  .animate-marquee-x { animation: none !important; }
+}
+
+/* Kartu yang baru masuk hasil saringan */
+@keyframes kartu-muncul { from { opacity: 0; transform: translateY(8px) scale(0.98); } to { opacity: 1; transform: none; } }
+.kartu-muncul { animation: kartu-muncul 0.3s ease-out both; }

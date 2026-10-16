@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { CalendarCheck, Check, Video, Footprints } from 'lucide-react';
 
 // Penjadwal survei purwarupa: memilih hari & jam, lalu menampilkan ringkasan.
@@ -27,6 +27,9 @@ export default function JadwalSurvei({ id, judul, agen, judulForm = 'Jadwalkan s
   const [nama, setNama] = useState('');
   const [email, setEmail] = useState('');
   const [selesai, setSelesai] = useState(false);
+  const [galat, setGalat] = useState('');
+  const judulSelesai = useRef(null);
+  const grupJam = useRef(null);
 
   // Tanggal dihitung di peramban (WIB), bukan saat build.
   useEffect(() => setHari(hariKeDepan(8)), []);
@@ -34,15 +37,21 @@ export default function JadwalSurvei({ id, judul, agen, judulForm = 'Jadwalkan s
   const dipilih = hari[h];
   const slot = dipilih && dipilih.getDay() === 6 ? SLOT_SABTU : SLOT;
   const kode = dipilih && jam ? `SV-${id}${fmt(dipilih, { day: '2-digit' })}${jam.replace('.', '')}` : '';
-  const siap = dipilih && jam && nama.trim() && /\S+@\S+\.\S+/.test(email);
+  useEffect(() => { if (selesai) judulSelesai.current?.focus(); }, [selesai]);
 
-  const kirim = (e) => { e.preventDefault(); if (siap) setSelesai(true); };
+  // Nama dan email diperiksa peramban (required); jam diperiksa di sini dengan pesan yang jelas.
+  const kirim = (e) => {
+    e.preventDefault();
+    if (!dipilih || !jam) { setGalat('Pilih jam survei dulu.'); grupJam.current?.querySelector('input')?.focus(); return; }
+    setGalat('');
+    setSelesai(true);
+  };
 
   if (selesai) {
     return (
-      <div className="rounded-2xl border border-black/5 bg-white p-6 shadow-sm" role="status">
+      <div className="rounded-2xl border border-black/5 bg-white p-6 shadow-sm">
         <span className="grid h-11 w-11 place-items-center rounded-full bg-forest text-cream"><Check size={22} /></span>
-        <h2 className="mt-4 font-display text-xl text-ink">Permintaan tercatat, {nama.split(' ')[0]}</h2>
+        <h2 ref={judulSelesai} tabIndex={-1} className="mt-4 font-display text-xl text-ink outline-none">Permintaan tercatat, {nama.trim().split(' ')[0]}</h2>
         <dl className="mt-4 space-y-2 text-sm">
           <div className="flex justify-between gap-4"><dt className="text-muted">Kode</dt><dd className="font-mono font-semibold text-ink">{kode}</dd></div>
           <div className="flex justify-between gap-4"><dt className="text-muted">Waktu</dt><dd className="text-right text-ink">{fmt(dipilih, { weekday: 'long', day: 'numeric', month: 'long' })}, {jam} WIB</dd></div>
@@ -72,10 +81,11 @@ export default function JadwalSurvei({ id, judul, agen, judulForm = 'Jadwalkan s
             {hari.map((d, i) => (
               <label key={i} className="relative cursor-pointer">
                 <input type="radio" name="hari" checked={h === i} onChange={() => { setH(i); setJam(''); }} className="peer sr-only" />
-                <span className={pilihan}>
+                <span className={pilihan} aria-hidden="true">
                   <span className="block text-[11px] uppercase">{fmt(d, { weekday: 'short' })}</span>
                   <span className="block font-semibold">{fmt(d, { day: 'numeric' })}</span>
                 </span>
+                <span className="sr-only">{fmt(d, { weekday: 'long', day: 'numeric', month: 'long' })}</span>
               </label>
             ))}
           </div>
@@ -84,10 +94,10 @@ export default function JadwalSurvei({ id, judul, agen, judulForm = 'Jadwalkan s
 
       <fieldset className="mt-4">
         <legend className="text-xs font-semibold uppercase tracking-wide text-muted">Jam (WIB)</legend>
-        <div className="mt-2 grid grid-cols-3 gap-2">
+        <div ref={grupJam} className="mt-2 grid grid-cols-3 gap-2">
           {slot.map((s) => (
             <label key={s} className="relative cursor-pointer">
-              <input type="radio" name="jam" checked={jam === s} onChange={() => setJam(s)} className="peer sr-only" />
+              <input type="radio" name="jam" checked={jam === s} onChange={() => { setJam(s); setGalat(''); }} className="peer sr-only" />
               <span className={pilihan}>{s}</span>
             </label>
           ))}
@@ -113,8 +123,9 @@ export default function JadwalSurvei({ id, judul, agen, judulForm = 'Jadwalkan s
         <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} autoComplete="email" required className={field} />
       </label>
 
-      <button type="submit" disabled={!siap} className="mt-5 w-full rounded-xl bg-forest py-3 font-semibold text-cream transition hover:bg-forest-soft disabled:cursor-not-allowed disabled:opacity-50">
-        {jam ? 'Minta jadwal ini' : 'Pilih jam dulu'}
+      <p className="mt-3 min-h-5 text-sm font-semibold text-forest" role="alert">{galat}</p>
+      <button type="submit" className="mt-1 w-full rounded-xl bg-forest py-3 font-semibold text-cream transition hover:bg-forest-soft">
+        {jam ? `Minta jadwal ${jam} WIB` : 'Minta jadwal ini'}
       </button>
       <p className="mt-3 text-center text-xs text-muted">{catatan}</p>
     </form>

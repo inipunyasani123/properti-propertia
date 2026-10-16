@@ -4,8 +4,10 @@ import { MapPin, BedDouble, Bath, Maximize, LandPlot, Layers, FileText, Calendar
 import Gallery from '@/components/Gallery';
 import PropertyCard from '@/components/PropertyCard';
 import JadwalSurvei from '@/components/JadwalSurvei';
+import PetaKawasan from '@/components/PetaKawasan';
 import Reveal from '@/components/ui/Reveal';
 import { site, properti, getProperti, propertiSerupa, formatHarga, hargaLabel, tautanDetail } from '@/lib/data';
+import { halaman } from '@/lib/seo';
 
 export function generateStaticParams() {
   return properti.map((p) => ({ id: String(p.id) }));
@@ -15,12 +17,13 @@ export async function generateMetadata({ params }) {
   const { id } = await params;
   const item = getProperti(id);
   if (!item) return { title: 'Properti tidak ditemukan' };
-  return {
-    title: item.judul,
-    description: `${item.jenisProperti} ${item.status.toLowerCase()} di ${item.lokasi.kecamatan}, ${item.lokasi.kota} — ${hargaLabel(item)}. ${item.deskripsi}`.slice(0, 160),
-    alternates: { canonical: `/properti/${item.id}` },
-    openGraph: { images: [{ url: item.media.foto[0] }] },
-  };
+  return halaman({
+    judul: item.judul,
+    deskripsi: `${item.jenisProperti} ${item.status.toLowerCase()} di ${item.lokasi.kecamatan}, ${item.lokasi.kota}, ${hargaLabel(item)}. ${item.deskripsi}`,
+    path: `/properti/${item.id}`,
+    gambar: item.media.foto[0],
+    alt: item.judul,
+  });
 }
 
 export default async function DetailPage({ params }) {
@@ -31,8 +34,12 @@ export default async function DetailPage({ params }) {
   const s = item.spesifikasi;
   const serupa = propertiSerupa(item);
   const ekstra = tautanDetail(item);
-  // Peta hanya sampai tingkat kecamatan — alamat lengkap diberikan saat survei.
-  const mapSrc = `https://www.google.com/maps?q=${encodeURIComponent(`${item.lokasi.kecamatan}, ${item.lokasi.kota}`)}&z=13&output=embed`;
+  // Remah roti untuk mesin pencari: Beranda › Properti › listing ini.
+  const remah = { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+    { '@type': 'ListItem', position: 1, name: site.name, item: site.url },
+    { '@type': 'ListItem', position: 2, name: 'Properti', item: `${site.url}/properti` },
+    { '@type': 'ListItem', position: 3, name: item.judul, item: `${site.url}/properti/${item.id}` },
+  ] };
   const luasAcuan = s.luasBangunan || s.luasTanah;
   const perMeter = item.status === 'Dijual' && luasAcuan ? item.harga / luasAcuan : 0;
 
@@ -50,7 +57,7 @@ export default async function DetailPage({ params }) {
   return (
     <main className="relative z-10">
       <div className="mx-auto max-w-7xl px-4 pt-8 sm:px-6 lg:px-8">
-        <Link href="/properti" className="inline-flex items-center gap-1 text-sm text-muted transition hover:text-forest"><ArrowLeft size={15} /> Kembali ke daftar</Link>
+        <Link href="/properti" className="-my-2 inline-flex items-center gap-1 py-2 text-sm text-muted transition hover:text-forest"><ArrowLeft size={15} /> Kembali ke daftar</Link>
         <div className="mt-4 flex flex-wrap items-start justify-between gap-4">
           <div>
             <div className="flex items-center gap-3">
@@ -95,9 +102,7 @@ export default async function DetailPage({ params }) {
 
           <h2 className="mt-10 font-display text-2xl text-ink">Lokasi</h2>
           <p className="mt-2 text-sm text-muted">Peta menunjukkan kawasan {item.lokasi.kecamatan}, bukan titik rumah. Alamat lengkap diberikan setelah survei dijadwalkan.</p>
-          <div className="mt-4 overflow-hidden rounded-2xl border border-black/5 shadow-sm">
-            <iframe title={`Peta kawasan ${item.lokasi.kecamatan}, ${item.lokasi.kota}`} src={mapSrc} className="h-72 w-full" loading="lazy" referrerPolicy="no-referrer-when-downgrade" />
-          </div>
+          <div className="mt-4"><PetaKawasan kecamatan={item.lokasi.kecamatan} kota={item.lokasi.kota} /></div>
         </div>
 
         <aside className="space-y-4 lg:sticky lg:top-24 lg:self-start">
@@ -129,6 +134,7 @@ export default async function DetailPage({ params }) {
           </div>
         </section>
       )}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(remah) }} />
     </main>
   );
 }

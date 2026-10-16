@@ -22,14 +22,14 @@ export default function SearchBar() {
     router.push('/properti' + (qs ? `?${qs}` : ''));
   };
 
-  const sel = 'w-full rounded-xl border border-black/10 bg-cream px-3 py-3 text-sm text-ink outline-none transition focus:border-forest';
+  const sel = 'min-h-11 w-full rounded-xl border border-black/10 bg-cream px-3 py-2.5 text-sm text-ink outline-none transition focus:border-forest sm:py-3';
 
   return (
-    <form onSubmit={submit} className="rounded-2xl border border-black/5 bg-white p-3 shadow-xl sm:p-4">
-      <div className="grid gap-3 sm:grid-cols-6">
-        <div className="relative sm:col-span-4">
+    <form onSubmit={submit} role="search" aria-label="Cari properti" className="rounded-2xl border border-black/5 bg-white p-3 shadow-xl sm:p-4">
+      <div className="grid grid-cols-2 gap-2 sm:grid-cols-6 sm:gap-3">
+        <div className="relative col-span-2 sm:col-span-4">
           <Search size={18} className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-muted" />
-          <input value={q} onChange={(e) => setQ(e.target.value)} placeholder="Cari kawasan / kata kunci…" aria-label="Kata kunci" className={`${sel} pl-10`} />
+          <input type="search" value={q} onChange={(e) => setQ(e.target.value)} placeholder="Cari kawasan / kata kunci…" aria-label="Kata kunci" className={`${sel} pl-10`} />
         </div>
         <select value={kota} onChange={(e) => setKota(e.target.value)} className={`${sel} sm:col-span-2`} aria-label="Kota">
           {kotaList.map((k) => <option key={k} value={k}>{k === 'Semua' ? 'Semua Kota' : k}</option>)}
@@ -40,7 +40,7 @@ export default function SearchBar() {
         <select value={jenis} onChange={(e) => setJenis(e.target.value)} className={`${sel} sm:col-span-2`} aria-label="Jenis">
           {jenisList.map((j) => <option key={j} value={j}>{j === 'Semua' ? 'Semua Jenis' : j}</option>)}
         </select>
-        <button type="submit" className="inline-flex items-center justify-center gap-2 rounded-xl bg-forest px-6 py-3 text-sm font-semibold text-cream transition hover:bg-forest-soft sm:col-span-2">
+        <button type="submit" className="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl bg-forest px-6 py-2.5 text-sm font-semibold text-cream transition hover:bg-forest-soft sm:col-span-2 sm:py-3">
           <Search size={16} /> Cari
         </button>
       </div>
