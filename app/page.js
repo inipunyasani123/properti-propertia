@@ -57,7 +57,7 @@ export default function HomePage() {
           <div>
             <div className="relative mx-auto w-full max-w-[19rem] sm:max-w-md">
               <div className="arch relative aspect-[4/5] w-full overflow-hidden bg-sand shadow-xl">
-                <Image src={sampul.media.foto[0]} alt={sampul.judul} fill priority sizes="(max-width:1024px) 100vw, 45vw" className="object-cover" />
+                <Image src={sampul.media.foto[0]} alt={sampul.media.ket?.[0] ? `${sampul.media.ket[0]} — ${sampul.judul}` : sampul.judul} fill priority fetchPriority="high" sizes="(max-width:640px) 19rem, 28rem" className="object-cover" />
               </div>
               {/* Floating featured card */}
               <Link href={`/properti/${sampul.id}`} className="absolute -bottom-4 -left-4 w-60 rounded-2xl border border-black/5 bg-white/95 p-4 shadow-xl backdrop-blur transition hover:-translate-y-1">
@@ -168,7 +168,7 @@ export default function HomePage() {
         <div className="mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-2 lg:gap-12">
           <Reveal>
             <div className="arch-sm relative aspect-[16/10] w-full max-w-md overflow-hidden bg-sand shadow-xl sm:aspect-[4/5]">
-              <Image src="/images/properti/ruang-tamu-terang.webp" alt="" fill sizes="(max-width:1024px) 100vw, 50vw" className="object-cover" />
+              <Image src="/images/properti/ruang-tirai-jendela.webp" alt="" fill sizes="(max-width:1024px) 100vw, 50vw" className="object-cover" />
             </div>
           </Reveal>
           <Reveal delay={0.1}>

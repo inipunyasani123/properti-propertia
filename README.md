@@ -44,26 +44,12 @@ Buka http://localhost:3000. Untuk build produksi: `npm run build` lalu `npm star
 
 ## Kredit foto
 
-Semua foto berlisensi CC0 (domain publik), dipotong ke 4:3 dan dikonversi ke WebP.
+19 foto listing, kawasan, dan beranda berlisensi CC0 1.0 atau domain publik (WordPress Photo Directory dan
+Wikimedia Commons), dipotong ke 4:3, nadanya disamakan, lalu disimpan sebagai WebP. Daftar lengkap per berkas —
+judul, pembuat, halaman sumber, lisensi — ada di [`public/images/SUMBER.md`](public/images/SUMBER.md).
 
-| Berkas | Fotografer | Sumber | Lisensi |
-| --- | --- | --- | --- |
-| `apartemen-putih.webp` | — | [rawpixel](https://www.rawpixel.com/image/3285824/free-photo-image-office-building-residence-city) | CC0 |
-| `dapur-terang.webp` | The Pic Pac | [StockSnap](https://stocksnap.io/photo/kitchen-sink-L07UXRLREE) | CC0 |
-| `kamar-hangat.webp` | — | [rawpixel](https://www.rawpixel.com/image/5917601/image-public-domain-wood-house) | CC0 |
-| `kamar-kota.webp` | — | [rawpixel](https://www.rawpixel.com/image/5920688/photo-image-public-domain-house-home) | CC0 |
-| `kamar-studio.webp` | Sylwia Pietruszka | [StockSnap](https://stocksnap.io/photo/bed-table-FND1JADL6W) | CC0 |
-| `lahan.webp` | JJ Skys the Limit | [StockSnap](https://stocksnap.io/photo/grassy-field-TQZZ18QJPR) | CC0 |
-| `ruang-tamu-sofa.webp` | — | [rawpixel](https://www.rawpixel.com/image/5927318/photo-image-public-domain-minimalist-house) | CC0 |
-| `ruang-tamu-terang.webp` | — | [rawpixel](https://www.rawpixel.com/image/5917348/image-frame-light-public-domain) | CC0 |
-| `ruang-teras-kayu.webp` | Joshua Ness | [StockSnap](https://stocksnap.io/photo/house-home-CLD6T4J9VZ) | CC0 |
-| `rumah-dua-lantai.webp` | — | [rawpixel](https://www.rawpixel.com/image/5913733/image-public-domain-plants-house) | CC0 |
-| `rumah-kotak.webp` | — | [rawpixel](https://www.rawpixel.com/image/6042800/photo-image-public-domain-minimal-house) | CC0 |
-| `rumah-modern.webp` | — | [rawpixel](https://www.rawpixel.com/image/6070500/free-public-domain-cc0-photo) | CC0 |
-| `rumah-satu-lantai.webp` | — | [rawpixel](https://www.rawpixel.com/image/5914459/photo-image-public-domain-house-family) | CC0 |
-| `teras-kolam.webp` | Matt Bango | [StockSnap](https://stocksnap.io/photo/modern-house-UIU7D31EDY) | CC0 |
-| `teras-tropis.webp` | World Travel Adventures | [StockSnap](https://stocksnap.io/photo/furniture-patio-KOIAWLY3SU) | CC0 |
-| `villa-batu.webp` | — | [rawpixel](https://www.rawpixel.com/image/6023165/photo-image-public-domain-house-summer) | CC0 |
+4 potret konsultan di `public/images/agen/` adalah ilustrasi buatan sendiri untuk tokoh fiktif (bukan foto orang
+sungguhan), dibuat dari kode di `scripts/ilustrasi/potret.mjs`.
 
 ---
 

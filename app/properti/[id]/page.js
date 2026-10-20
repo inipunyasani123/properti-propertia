@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { MapPin, BedDouble, Bath, Maximize, LandPlot, Layers, FileText, CalendarDays, Check, ArrowLeft, ArrowRight, Ruler, ShieldCheck } from 'lucide-react';
@@ -75,7 +76,7 @@ export default async function DetailPage({ params }) {
       </div>
 
       <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-        <Gallery foto={item.media.foto} video={item.media.video} judul={item.judul} />
+        <Gallery foto={item.media.foto} ket={item.media.ket} video={item.media.video} judul={item.judul} />
       </div>
 
       <div className="mx-auto grid max-w-7xl gap-10 px-4 pb-16 sm:px-6 lg:grid-cols-[1fr_360px] lg:px-8">
@@ -107,7 +108,7 @@ export default async function DetailPage({ params }) {
 
         <aside className="space-y-4 lg:sticky lg:top-24 lg:self-start">
           <div className="flex items-center gap-3 rounded-2xl border border-black/5 bg-white p-5 shadow-sm">
-            <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-forest font-display text-lg text-cream" aria-hidden="true">{item.agen.nama[0]}</span>
+            <span className="relative h-16 w-16 shrink-0 overflow-hidden rounded-full bg-sand ring-2 ring-forest/20"><Image src={item.agen.wajah} alt={`Ilustrasi potret ${item.agen.nama}`} fill sizes="64px" className="object-cover" /></span>
             <div>
               <p className="text-xs uppercase tracking-wide text-muted">Konsultan listing</p>
               <p className="font-display text-lg text-ink">{item.agen.nama}</p>

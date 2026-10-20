@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import { Mail, Clock, Map as Peta, Users } from 'lucide-react';
 import PageHeader from '@/components/PageHeader';
@@ -13,7 +14,7 @@ export const metadata = halaman({
 
 export default function KontakPage() {
   const wilayah = Array.from(new Set(properti.map((p) => p.agen.wilayah)));
-  const konsultan = new Set(properti.map((p) => p.agen.kode)).size;
+  const konsultan = Object.values(Object.fromEntries(properti.map((p) => [p.agen.kode, p.agen])));
 
   return (
     <main className="relative z-10">
@@ -25,7 +26,7 @@ export default function KontakPage() {
           <div className="order-2 space-y-4 lg:order-1">
             <Info icon={Mail} label="Email" value={site.email} note="Alamat contoh — situs ini purwarupa." />
             <Info icon={Clock} label="Jam layanan" value={site.jam} />
-            <Info icon={Users} label="Konsultan" value={`${konsultan} orang`} />
+            <Info icon={Users} label="Konsultan" value={`${konsultan.length} orang`} note={konsultan.map((a) => a.nama).join(', ')} potret={konsultan} />
             <Info icon={Peta} label="Wilayah" value={wilayah.join(' · ')} />
             {faqs.length > 0 && (
               <div className="rounded-2xl border border-black/5 bg-white p-5 shadow-sm">
@@ -47,7 +48,7 @@ export default function KontakPage() {
   );
 }
 
-function Info({ icon: Icon, label, value, note }) {
+function Info({ icon: Icon, label, value, note, potret }) {
   return (
     <div className="flex items-start gap-4 rounded-2xl border border-black/5 bg-white p-5 shadow-sm">
       <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-forest/10 text-forest"><Icon size={20} /></span>
@@ -55,6 +56,13 @@ function Info({ icon: Icon, label, value, note }) {
         <p className="text-xs uppercase tracking-wide text-muted">{label}</p>
         <p className="mt-0.5 break-words font-semibold text-ink">{value}</p>
         {note && <p className="mt-0.5 text-xs text-muted">{note}</p>}
+        {potret && (
+          <ul className="mt-3 flex -space-x-2" aria-hidden="true">
+            {potret.map((a) => (
+              <li key={a.kode} className="relative h-10 w-10 overflow-hidden rounded-full bg-sand ring-2 ring-cream"><Image src={a.wajah} alt="" fill sizes="40px" className="object-cover" /></li>
+            ))}
+          </ul>
+        )}
       </div>
     </div>
   );

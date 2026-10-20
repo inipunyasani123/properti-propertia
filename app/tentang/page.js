@@ -70,17 +70,21 @@ export default function TentangPage() {
       <section className="bg-sand/50 px-4 py-16 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <Reveal><h2 className="font-display text-3xl text-ink md:text-4xl">Konsultan</h2></Reveal>
-          <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <ul className={`mt-8 grid grid-cols-2 gap-4 sm:gap-6 ${konsultan.length > 3 ? 'lg:grid-cols-4' : konsultan.length === 3 ? 'lg:grid-cols-3' : 'max-w-3xl'}`}>
             {konsultan.map((a) => (
-              <li key={a.kode} className="rounded-2xl border border-black/5 bg-white p-5 shadow-sm">
-                <span className="grid h-11 w-11 place-items-center rounded-full bg-forest font-display text-lg text-cream" aria-hidden="true">{a.nama[0]}</span>
-                <p className="mt-3 font-display text-lg text-ink">{a.nama}</p>
-                <p className="text-sm text-muted">{a.wilayah}</p>
-                <p className="mt-2 text-xs text-muted">{a.kode} · {a.jumlah} listing</p>
+              <li key={a.kode} className="overflow-hidden rounded-2xl border border-black/5 bg-white shadow-sm">
+                <div className="relative aspect-[4/5] bg-sand">
+                  <Image src={a.foto} alt={`Ilustrasi potret ${a.nama}`} fill sizes="(max-width:1024px) 50vw, 25vw" className="object-cover" />
+                </div>
+                <div className="p-4 sm:p-5">
+                  <p className="font-display text-lg leading-snug text-ink">{a.nama}</p>
+                  <p className="text-sm text-muted">{a.wilayah}</p>
+                  <p className="mt-2 text-xs text-muted">{a.kode} · {a.jumlah} listing</p>
+                </div>
               </li>
             ))}
           </ul>
-          <p className="mt-8 max-w-2xl text-sm text-muted">{site.name} adalah purwarupa desain. Listing, konsultan, dan harga di situs ini adalah contoh; foto berasal dari sumber CC0.</p>
+          <p className="mt-8 max-w-2xl text-sm text-muted">{site.name} adalah purwarupa desain. Listing, konsultan, dan harga di situs ini adalah contoh. Foto berasal dari sumber CC0 dan domain publik; potret konsultan adalah ilustrasi buatan sendiri.</p>
         </div>
       </section>
 
