@@ -2,7 +2,7 @@
 
 Semua foto di `public/images/properti/` berlisensi **CC0 1.0** atau **domain publik**, diunduh dari WordPress Photo
 Directory (wordpress.org/photos, seluruhnya CC0) dan Wikimedia Commons (hanya berkas berlabel CC0 / Public domain).
-Foto dipotong ke 4:3 (foto pembuka beranda 3:4), diperkecil ke ≤1920 px, nadanya disamakan dengan palet Propertia,
+Semua foto dipotong ke 4:3, lebar 1600 px, nadanya disamakan dengan palet Propertia,
 lalu disimpan sebagai WebP. Tempat di foto tidak selalu sama dengan lokasi listing — usaha dan listing di situs ini
 fiktif; foto dipakai sebagai gambaran suasana.
 
