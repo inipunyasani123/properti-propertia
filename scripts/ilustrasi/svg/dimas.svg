@@ -41,12 +41,7 @@
       <rect x="221.01999999999998" y="200" width="197.96" height="268" fill="url(#cahaya)"/>
       <ellipse cx="320" cy="252" rx="108.98" ry="26" fill="#8d5e40" opacity=".35" filter="url(#lembut)"/>
     </g><path d="M 320 200 C 383.3472 200 418.98 250 418.98 322 C 418.98 378 409.082 422 381.3676 448 C 357.6124 466 339.796 468 320 468 C 300.204 468 282.3876 466 258.6324 448 C 230.918 422 221.01999999999998 378 221.01999999999998 322 C 221.01999999999998 250 256.6528 200 320 200 Z" fill="url(#arsir)" opacity=".5" clip-path="url(#klipArsirW)"/>
-  <circle cx="262" cy="388" r="26" fill="url(#pipi)"/><circle cx="378" cy="388" r="26" fill="url(#pipi)"/><path d="M 326 354 C 332 378 338 390 330 398 C 324 402 314 402 308 397" fill="none" stroke="#82573b" stroke-width="3.5" stroke-linecap="round"/>
-    <ellipse cx="318" cy="390" rx="16" ry="9" fill="#9b6846" opacity=".35"/><path d="M 292 424 C 306 433 334 433 348 424 C 336 442.5 304 442.5 292 424 Z" fill="#955341"/>
-    <path d="M 290 423 C 306 434 334 434 350 423" fill="none" stroke="#61362a" stroke-width="3" stroke-linecap="round"/>
-    <path d="M 286 420 C 289 422 290 424 290 427 M 354 420 C 351 422 350 424 350 427" stroke="#84593c" stroke-width="2.5" stroke-linecap="round" fill="none" opacity=".6"/><path d="M 259.58 338 C 267.58 328.1 287.58 328.1 295.58 338 C 287.58 344.3 267.58 344.3 259.58 338 Z" fill="#fbf7ee" stroke="#0f3d2e" stroke-width="2.6"/>
-      <circle cx="278.58" cy="337" r="5.9" fill="#2a1c15"/><circle cx="276.08" cy="335" r="1.8" fill="#fff"/><path d="M 344.42 338 C 352.42 328.1 372.42 328.1 380.42 338 C 372.42 344.3 352.42 344.3 344.42 338 Z" fill="#fbf7ee" stroke="#0f3d2e" stroke-width="2.6"/>
-      <circle cx="363.42" cy="337" r="5.9" fill="#2a1c15"/><circle cx="360.92" cy="335" r="1.8" fill="#fff"/><path d="M 255.57999999999998 312 C 269.58 302 287.58 302 301.58 310" fill="none" stroke="#1b1512" stroke-width="7.5" stroke-linecap="round"/><path d="M 384.42 312 C 370.42 302 352.42 302 338.42 310" fill="none" stroke="#1b1512" stroke-width="7.5" stroke-linecap="round"/>
+  
   <g>
     <path d="M 215.01999999999998 326 C 207.01999999999998 236 254 150 326 148 C 406 146 436.98 210 426.98 324 C 416.98 292 408.98 268 392 250 C 354 236 312 236 286 222 C 272 246 250 262 225.01999999999998 280 C 219.01999999999998 294 217.01999999999998 310 215.01999999999998 326 Z" fill="#1b1512" stroke="#0f3d2e" stroke-width="3.2" stroke-linejoin="round"/>
     <path d="M 286 222 C 330 186 390 182 418.98 236" fill="none" stroke="#4d4846" stroke-width="5" stroke-linecap="round" opacity="0.55"/>

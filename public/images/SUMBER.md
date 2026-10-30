@@ -31,7 +31,7 @@ fiktif; foto dipakai sebagai gambaran suasana.
 ## Potret konsultan
 
 `agen/*.webp` (bayu, dimas, nadia, wulan) adalah **ilustrasi buatan sendiri** untuk tokoh fiktif — bukan foto atau
-wajah orang sungguhan. Dibuat dari kode SVG di `scripts/ilustrasi/potret.mjs`; sumber SVG-nya di
+wajah orang sungguhan, dan berwajah polos (tanpa mata, alis, hidung, mulut). Dibuat dari kode SVG di `scripts/ilustrasi/potret.mjs`; sumber SVG-nya di
 `scripts/ilustrasi/svg/`. Buat ulang dengan `node scripts/ilustrasi/potret.mjs <varian>` dari akar proyek, lalu
 `node scripts/static-images.mjs . --dirs public/images`.
 

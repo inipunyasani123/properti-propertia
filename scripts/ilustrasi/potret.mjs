@@ -257,7 +257,9 @@ function fitur(t, hw, varian) {
   }
   let anting = ''
   if (t.anting && t.rambut.gaya !== 'hijab') anting = `<circle cx="${CX - hw - 2}" cy="388" r="6" fill="${t.anting}"/><circle cx="${CX + hw + 2}" cy="388" r="6" fill="${t.anting}"/>`
-  return { mata: mata(CX - ex) + mata(CX + ex), alis: al(CX - ex, 1) + al(CX + ex, -1), mulut, hidung, pipi, kacamata, janggut, anting }
+  // Wajah polos: tanpa mata, alis, hidung, mulut, dan pipi (seragam dengan demo lain).
+  void mata; void al; void mulut; void hidung; void pipi
+  return { mata: '', alis: '', mulut: '', hidung: '', pipi: '', kacamata, janggut, anting }
 }
 
 // ───────────────────────── latar ─────────────────────────
