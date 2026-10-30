@@ -64,8 +64,8 @@ export default function JadwalSurvei({ id, judul, agen, judulForm = 'Jadwalkan s
     );
   }
 
-  const pilihan = 'block rounded-xl border border-black/10 px-2 py-2 text-center text-sm text-ink transition peer-checked:border-forest peer-checked:bg-forest peer-checked:text-cream peer-focus-visible:ring-2 peer-focus-visible:ring-forest hover:border-forest';
-  const field = 'mt-1 w-full rounded-xl border border-black/10 bg-cream px-3 py-2.5 text-sm text-ink outline-none transition focus:border-forest';
+  const pilihan = 'flex min-h-11 flex-col items-center justify-center rounded-xl border border-black/10 px-2 py-2 text-center text-sm text-ink transition peer-checked:border-forest peer-checked:bg-forest peer-checked:text-cream peer-focus-visible:ring-2 peer-focus-visible:ring-forest hover:border-forest';
+  const field = 'mt-1 w-full rounded-xl border border-black/10 bg-cream px-3 py-2.5 text-base text-ink sm:text-sm outline-none transition focus:border-forest';
 
   return (
     <form onSubmit={kirim} className="rounded-2xl border border-black/5 bg-white p-6 shadow-sm" aria-label={`${judulForm}: ${judul}`}>
@@ -82,7 +82,7 @@ export default function JadwalSurvei({ id, judul, agen, judulForm = 'Jadwalkan s
               <label key={i} className="relative cursor-pointer">
                 <input type="radio" name="hari" checked={h === i} onChange={() => { setH(i); setJam(''); }} className="peer sr-only" />
                 <span className={pilihan} aria-hidden="true">
-                  <span className="block text-[11px] uppercase">{fmt(d, { weekday: 'short' })}</span>
+                  <span className="block text-xs uppercase">{fmt(d, { weekday: 'short' })}</span>
                   <span className="block font-semibold">{fmt(d, { day: 'numeric' })}</span>
                 </span>
                 <span className="sr-only">{fmt(d, { weekday: 'long', day: 'numeric', month: 'long' })}</span>

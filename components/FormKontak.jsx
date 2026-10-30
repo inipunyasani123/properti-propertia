@@ -33,7 +33,7 @@ export default function FormKontak() {
 
   const handle = (e) => setForm({ ...form, [e.target.name]: e.target.value });
   const submit = (e) => { e.preventDefault(); if (form.nama.trim() && form.email.trim() && form.pesan.trim()) setSent(true); };
-  const field = 'mt-1 w-full rounded-xl border border-black/10 bg-cream px-4 py-3 text-sm text-ink outline-none transition focus:border-forest';
+  const field = 'mt-1 w-full rounded-xl border border-black/10 bg-cream px-4 py-3 text-base text-ink sm:text-sm outline-none transition focus:border-forest';
   const label = 'block text-sm font-semibold text-ink';
 
   if (sent) {

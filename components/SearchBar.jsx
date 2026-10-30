@@ -22,7 +22,7 @@ export default function SearchBar() {
     router.push('/properti' + (qs ? `?${qs}` : ''));
   };
 
-  const sel = 'min-h-11 w-full rounded-xl border border-black/10 bg-cream px-3 py-2.5 text-sm text-ink outline-none transition focus:border-forest sm:py-3';
+  const sel = 'min-h-11 w-full rounded-xl border border-black/10 bg-cream px-3 py-2.5 text-base text-ink sm:text-sm outline-none transition focus:border-forest sm:py-3';
 
   return (
     <form onSubmit={submit} role="search" aria-label="Cari properti" className="rounded-2xl border border-black/5 bg-white p-3 shadow-xl sm:p-4">

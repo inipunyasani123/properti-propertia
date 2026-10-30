@@ -61,14 +61,14 @@ export default function HomePage() {
               </div>
               {/* Floating featured card */}
               <Link href={`/properti/${sampul.id}`} className="absolute -bottom-4 -left-4 w-60 rounded-2xl border border-black/5 bg-white/95 p-4 shadow-xl backdrop-blur transition hover:-translate-y-1">
-                <p className="text-[11px] font-semibold uppercase tracking-wide text-muted">{sampul.jenisProperti} · {sampul.status}</p>
+                <p className="text-xs font-semibold uppercase tracking-wide text-muted">{sampul.jenisProperti} · {sampul.status}</p>
                 <p className="mt-1 line-clamp-1 font-display text-base text-ink">{sampul.judul}</p>
                 <p className="mt-1 flex items-center gap-1 text-xs text-muted"><MapPin size={12} /> {sampul.lokasi.kecamatan}, {sampul.lokasi.kota}</p>
                 <p className="mt-2 font-display text-xl text-forest">{hargaLabel(sampul)}</p>
               </Link>
               <div className="absolute -right-3 top-6 hidden rounded-2xl bg-forest px-4 py-3 text-center text-cream shadow-lg sm:block">
                 <p className="font-display text-2xl">{KOTA_MARQUEE.length}</p>
-                <p className="text-[10px] uppercase tracking-wide text-cream/80">Kota</p>
+                <p className="text-xs uppercase tracking-wide text-cream/80">Kota</p>
               </div>
             </div>
           </div>
@@ -102,7 +102,7 @@ export default function HomePage() {
                   <Link href={`/properti?jenis=${k.jenis}`} className="group flex h-full flex-col items-center gap-2 rounded-2xl border border-black/5 bg-white px-1 py-3 text-center shadow-sm transition hover:-translate-y-1 hover:border-forest/30 sm:gap-3 sm:p-5">
                     <span className="grid h-10 w-10 place-items-center rounded-xl bg-forest/10 text-forest transition group-hover:bg-forest group-hover:text-cream sm:h-12 sm:w-12"><Icon size={20} /></span>
                     <span className="text-[13px] font-semibold text-ink sm:text-sm">{k.jenis}</span>
-                    <span className="-mt-1.5 text-[11px] text-muted sm:-mt-2 sm:text-xs">{properti.filter((p) => p.jenisProperti === k.jenis).length} listing</span>
+                    <span className="-mt-1.5 text-xs text-muted sm:-mt-2 sm:text-xs">{properti.filter((p) => p.jenisProperti === k.jenis).length} listing</span>
                   </Link>
                 </Reveal>
               );
@@ -147,7 +147,7 @@ export default function HomePage() {
           <ul className="-mx-4 mt-8 flex snap-x snap-mandatory scroll-px-4 gap-4 overflow-x-auto px-4 pb-3 [scrollbar-width:thin] sm:mx-0 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-10 sm:overflow-visible sm:px-0 sm:pb-0 lg:grid-cols-3" aria-label="Listing lain minggu ini">
             {rest.map((p) => <li key={p.id} className="w-[80%] shrink-0 snap-start sm:w-auto"><PropertyCard item={p} /></li>)}
           </ul>
-          <Link href="/properti" className="mt-4 inline-flex items-center gap-1 py-2 text-sm font-semibold text-forest hover:underline sm:hidden">Lihat semua {properti.length} listing <ArrowUpRight size={16} /></Link>
+          <Link href="/properti" className="mt-4 inline-flex min-h-11 items-center gap-1 py-2 text-sm font-semibold text-forest hover:underline sm:hidden">Lihat semua {properti.length} listing <ArrowUpRight size={16} /></Link>
         </div>
       </section>
 

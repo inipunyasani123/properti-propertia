@@ -31,7 +31,7 @@ export default function KalkulatorBiaya() {
   };
 
   const h = useMemo(() => hitungBiaya({ harga, baru, kpr, dpPersen: dp, bunga, tenor, npoptkp }), [harga, baru, kpr, dp, bunga, tenor, npoptkp]);
-  const field = 'mt-1 w-full rounded-xl border border-black/10 bg-cream px-3 py-2.5 text-sm text-ink outline-none transition focus:border-forest';
+  const field = 'mt-1 w-full rounded-xl border border-black/10 bg-cream px-3 py-2.5 text-base text-ink sm:text-sm outline-none transition focus:border-forest';
   const label = 'block text-sm font-semibold text-ink';
 
   return (

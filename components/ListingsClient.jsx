@@ -67,7 +67,7 @@ export default function ListingsClient() {
   const sebelumnya = useRef(new Set(properti.map((p) => p.id)));
   useEffect(() => { sebelumnya.current = new Set(list.map((p) => p.id)); }, [list]);
 
-  const sel = 'min-h-11 rounded-xl border border-black/10 bg-cream px-3 py-2.5 text-sm text-ink outline-none transition focus:border-forest';
+  const sel = 'min-h-11 rounded-xl border border-black/10 bg-cream px-3 py-2.5 text-base text-ink sm:text-sm outline-none transition focus:border-forest';
   const active = f.q || f.status !== 'Semua' || f.jenis !== 'Semua' || f.kota !== 'Semua' || f.harga !== 'all' || kt !== 'Semua';
 
   return (

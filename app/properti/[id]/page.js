@@ -58,7 +58,7 @@ export default async function DetailPage({ params }) {
   return (
     <main className="relative z-10">
       <div className="mx-auto max-w-7xl px-4 pt-8 sm:px-6 lg:px-8">
-        <Link href="/properti" className="-my-2 inline-flex items-center gap-1 py-2 text-sm text-muted transition hover:text-forest"><ArrowLeft size={15} /> Kembali ke daftar</Link>
+        <Link href="/properti" className="-my-2 inline-flex min-h-11 items-center gap-1 py-2 text-sm text-muted transition hover:text-forest"><ArrowLeft size={15} /> Kembali ke daftar</Link>
         <div className="mt-4 flex flex-wrap items-start justify-between gap-4">
           <div>
             <div className="flex items-center gap-3">

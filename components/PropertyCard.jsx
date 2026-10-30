@@ -14,7 +14,7 @@ export default function PropertyCard({ item }) {
         <span className="absolute right-4 top-4 grid h-9 w-9 translate-y-1 place-items-center rounded-full bg-cream text-forest opacity-0 transition group-hover:translate-y-0 group-hover:opacity-100"><ArrowUpRight size={16} /></span>
       </div>
       <div className="px-1 pt-4">
-        <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-gold">{item.jenisProperti}</p>
+        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-gold">{item.jenisProperti}</p>
         <h3 className="mt-1 line-clamp-2 font-display text-xl leading-snug text-ink transition-colors group-hover:text-forest">{item.judul}</h3>
         <p className="mt-1.5 flex items-center gap-1 text-sm text-muted"><MapPin size={14} /> {item.lokasi.kecamatan}, {item.lokasi.kota}</p>
         <div className="mt-3 flex items-center gap-4 text-sm text-ink/70">
